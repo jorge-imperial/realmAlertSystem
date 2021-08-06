@@ -2,7 +2,7 @@
 
 ## Motivation
 
-This tutorial is focused on those developers who have a [Realm](https://medium.com/r/?url=https%3A%2F%2Fwww.mongodb.com%2Frealm) application and want to create an alert monitoring system that sends an SMS every time a new error appears in our application.
+This tutorial is focused on those developers who have an Atlas environment and want to keep a record of the alerts on a separate database.
 
 Currently, there are three ways to access the logs of our system:
 
@@ -17,7 +17,7 @@ Let's assume that you have already created a [MongoDB Atlas](https://medium.com/
 ## Prerequisites
 
 1. Have already created a MongoDB Atlas account and an associated cluster. https://www.mongodb.com/cloud/atlas/register
-2. Have a Twilio account. https://www.twilio.com/
+2. If Twilio notifications are needed, a Twilio account. https://www.twilio.com/
 
 ## Overview
 
