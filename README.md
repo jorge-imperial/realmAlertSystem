@@ -23,7 +23,7 @@ Let's assume that you have already created a [MongoDB Atlas](https://medium.com/
 
 The system is composed of several parts that we will explain below:
 
-![diagram](https://cdn-images-1.medium.com/max/800/0*XHvnLO2S--1iwUry)
+![diagram](https://github.com/jorge-imperial/realmAlertSystem/blob/main/poc.png)
 
 1. **Schedule Trigger**: This trigger will be in charge of monitoring our Admin API to request the error logs. Here it is important to define the monitoring time so that this time will be the delay that we will have between a new error that arises in our application and the alert message that we will receive. For this tutorial, the monitoring is indicated every 10 minutes.
 
@@ -32,7 +32,8 @@ The system is composed of several parts that we will explain below:
     2. **Error Collection**: We will use this collection to store any error derived from the requests to our Admin API.
     3. **Alert Collection**: We will use this collection to store the last error log of our application that we have not yet processed and sent via SMS to our phone.
 
-3. **Database Trigger**: The function of this trigger is to monitor the Alert collection, every time a new document is introduced in this collection, this trigger will be in charge of sending an alert to the phone numbers configured through Twilio.
+3. **Database Trigger**: The function of this trigger is to monitor the Alert collection, every time a new document is introduced in this collection, this trigger will be in charge of sending an alert to the phone numbers configured through Twilio, and to send the data to another MongoDB environment.
+
 
 
 
