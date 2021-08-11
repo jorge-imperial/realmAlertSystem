@@ -1,5 +1,5 @@
 {
     "name": "public_key",
-    "value": "<<public key>>",
-    "from_secret": false
+    "value": "public_key",
+    "from_secret": true
 }

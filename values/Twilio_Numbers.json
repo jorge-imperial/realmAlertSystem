@@ -2,7 +2,7 @@
     "from_secret": false,
     "name": "Twilio_Numbers",
     "value": {
-        "from": "<<Twilio number>>",
-        "to": "<<Number>>"
+        "from": "\u003c\u003cTwilio number\u003e\u003e",
+        "to": "\u003c\u003cNumber\u003e\u003e"
     }
 }

@@ -38,6 +38,7 @@ exports = async function() {
   if (data == null || data.length === 0) {
     // There is no access token registered
     const token = await context.functions.execute("RequestAccessToken");
+    console.log(`Token is ${JSON.stringify(token)}`);
     logs = await context.functions.execute("RequestErrorLogs", token);
   } else {
     logs = await context.functions.execute("RequestErrorLogs", data[0]);

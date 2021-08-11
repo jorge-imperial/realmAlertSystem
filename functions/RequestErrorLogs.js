@@ -13,7 +13,7 @@ exports = async function(arg) {
   
   async function requestLogs(access_token) {
     // Get logs for your Realm App
-    const logsEndpoint = `${ADMIN_API_BASE_URL}/groups/${groupId}/apps/${appId}/logs?errors_only=true`;
+    const logsEndpoint = `${ADMIN_API_BASE_URL}/groups/${groupId}/apps/${appId}/logs?errors_only=false`;
     const  request = {
       "url": logsEndpoint,
       "headers": {
@@ -21,6 +21,7 @@ exports = async function(arg) {
       },
       "encodeBodyAsJSON" : true
     };
+    console.log(`RequestErrorLogs: ${logsEndpoint}`);
     return await context.http.get(request)
     .then(response => {
       return response;
@@ -29,7 +30,7 @@ exports = async function(arg) {
       error.insertOne({
         date: new Date(),
         code: "Error when executing request to request logs from the ADMIN API",
-        message: JSON.stringify(err),
+        message: logsEndpoint, // JSON.stringify(err),
         error: err
       });
       return null;
@@ -56,9 +57,10 @@ exports = async function(arg) {
         control.deleteMany({});
         error.insertOne({
           date: new Date(),
-          code: "Error when trying to request logs from the ADMIN API",
+          code: "Error (1) when trying to request logs from the ADMIN API",
           response: JSON.stringify(result),
-          message: JSON.stringify(body)
+          message: JSON.stringify(body),
+          token: JSON.stringify(arg.access_token),
         });
         return "";
       }
@@ -68,9 +70,11 @@ exports = async function(arg) {
     control.deleteMany({});
     error.insertOne({
       date: new Date(),
-      code: "Error when trying to request logs from the ADMIN API",
+      code: "Error (2)  when trying to request logs from the ADMIN API",
       response: JSON.stringify(result),
-      message: JSON.stringify(result)
+      message: JSON.stringify('Ouch'),
+       token: JSON.stringify(arg.access_token),
+        
     });
     return "";
   }

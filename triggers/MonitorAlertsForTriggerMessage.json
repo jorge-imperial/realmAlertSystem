@@ -1,5 +1,4 @@
 {
-    "id": "60eec8b068c10fdfa579a7bb",
     "name": "MonitorAlertsForTriggerMessage",
     "type": "DATABASE",
     "config": {
@@ -16,5 +15,5 @@
         "unordered": true
     },
     "function_name": "SendAlertTwilio",
-    "disabled": false
+    "disabled": true
 }
